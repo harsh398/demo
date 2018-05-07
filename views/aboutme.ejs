@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>about me</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .jumbotron {
+          margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <%- include('partials/navbar') %>
+        <div class="jumbotron">
+            <h1> about me</h1>
+            <p class="lead">Check out our articles below!</p>
+        </div>
+
+    
+       
+    </div>
+    <div class="container">
+      <fieldset>
+        <form action="/aboutme" method="POST">
+    <input type="text" class="form-control" id="usr" name="Questions">
+
+<button type="Submit" class="btn btn-primary">Submit</button>
+ 
+                     <% if (que === ques[0].q) { %>
+     <h2 style="font-size: 16px;color: #3cb371"><%= ans[0].description %></h2>
+<% } else if (que === ques[1].q ) { %>
+   <h2 style="font-size: 16px;color: #3cb371"><%= ans[1].tech %></h2>
+    <% } else if (que === ques[2].q ) { %>
+ <h2 style="font-size: 16px;color: #3cb371"><%= ans[2].techStack %></h2>
+    <% } else if (que === ques[3].q ) { %>
+ <h2 style="font-size: 16px;color: #3cb371"><%= ans[3].hobbies %></h2>
+<% } else { %>
+<% ques.forEach((quest) => { %>
+<h2 style="font-size: 16px;color: #3cb371">Question :<%= quest.q %></h2>
+  
+<% }) %>
+
+
+<h2 style="font-size: 16px;color: #3cb371">Answer:<%= ans[0].description %></h2>
+<h2 style="font-size: 16px;color: #3cb371">Answer:<%= ans[1].tech %></h2>
+
+<h2 style="font-size: 16px;color: #3cb371">Answer:<%= ans[2].techStack %></h2>
+
+<h2 style="font-size: 16px;color: #3cb371">Answer:<%= ans[3].hobbies %></h2>
+
+  
+
+<% } %>
+   </fieldset>
+    </div>
+     <%- include('partials/footer') %>
+</body>
+
+</html>
